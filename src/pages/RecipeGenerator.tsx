@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, ChevronRight, Clock, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -50,20 +49,9 @@ const RecipeGenerator = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!searchQuery.trim()) return;
-    
-    setIsLoading(true);
-    
-    // Simulate API call to generate recipes
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Recipes generated!",
-        description: `Found recipes based on "${searchQuery}"`,
-      });
-      // For now we're just using the mock data, in a real app we'd fetch from an API
-    }, 1500);
+    // Instead of generating recipes, open the Streamlit Master Chef Assistant
+    window.open("http://localhost:8501", "_blank");
   };
 
   return (
