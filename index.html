@@ -22,7 +22,19 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
-    <elevenlabs-convai agent-id="1bRInSulTKAn6RdZ8dST"></elevenlabs-convai>
+    <!-- Add a toggle button for the conversational agent -->
+    <button id="convai-toggle-btn" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">Talk to our MasterChef</button>
+    <!-- Container for the agent, initially hidden -->
+    <div id="convai-widget-container" style="display: none; position: fixed; top: 50px; right: 10px; z-index: 1000;">
+      <elevenlabs-convai agent-id="1bRInSulTKAn6RdZ8dST"></elevenlabs-convai>
+    </div>
     <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    <script>
+      // Toggle the display of the conversational AI agent
+      document.getElementById('convai-toggle-btn').addEventListener('click', () => {
+        const container = document.getElementById('convai-widget-container');
+        container.style.display = (container.style.display === 'none' || !container.style.display) ? 'block' : 'none';
+      });
+    </script>
   </body>
 </html>

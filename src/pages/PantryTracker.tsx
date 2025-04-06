@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Plus, Trash2, Edit } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -198,9 +197,9 @@ const GroceryItemCard = ({
         onChange={() => onToggle(item.id)}
         className="h-5 w-5 text-kitchen-orange rounded mr-3 focus:ring-kitchen-orange"
       />
-      <div className={`flex-1 ${item.isChecked ? 'line-through text-gray-400' : ''}`}>
-        <p className="font-medium">{item.name}</p>
-        <p className="text-sm text-gray-500">{item.quantity} {item.unit}</p>
+      <div className={`flex-1 ${item.isChecked ? 'line-through text-gray-400' : 'text-black'}`}>
+        <p className="font-medium text-black">{item.name}</p>
+        <p className="text-sm text-black">{item.quantity} {item.unit}</p>
       </div>
       <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500">
         <Edit size={16} />

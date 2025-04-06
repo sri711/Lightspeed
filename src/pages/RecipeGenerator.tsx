@@ -44,21 +44,21 @@ const MOCK_RECIPES: Recipe[] = [
 const RecipeGenerator = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [recipes, setRecipes] = useState<Recipe[]>(MOCK_RECIPES);
+  const [recipes] = useState<Recipe[]>(MOCK_RECIPES);
   const { toast } = useToast();
+  const [showStreamlit, setShowStreamlit] = useState(false);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
-    // Instead of generating recipes, open the Streamlit Master Chef Assistant
-    window.open("http://localhost:8501", "_blank");
+    // Instead of opening a new tab, embed the Streamlit app by toggling state.
+    setShowStreamlit(true);
   };
 
-  return (
+  return !showStreamlit ? (
     <div className="container py-6 space-y-6">
       <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-kitchen-darkGray">What would you like to cook today?</h2>
-        
+        <h2 className="text-lg font-semibold text-white">What would you like to cook today?</h2>
         <form onSubmit={handleSearch} className="flex gap-2">
           <Input
             type="text"
@@ -76,21 +76,30 @@ const RecipeGenerator = () => {
           </Button>
         </form>
       </section>
-
       <section className="space-y-3">
         <div className="flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-kitchen-darkGray">Recipe Suggestions</h2>
+          <h2 className="text-lg font-semibold text-white">Recipe Suggestions</h2>
           <Button variant="link" className="text-kitchen-orange p-0">
             See all <ChevronRight size={16} />
           </Button>
         </div>
-        
         <div className="space-y-4">
           {recipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
       </section>
+    </div>
+  ) : (
+    <div className="container py-6">
+      <Button onClick={() => setShowStreamlit(false)} className="mb-4">Back</Button>
+      <div className="h-screen">
+        <iframe
+          src="http://localhost:8501"
+          title="Master Chef Assistant"
+          className="w-full h-full border-0"
+        />
+      </div>
     </div>
   );
 };
