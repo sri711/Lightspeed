@@ -91,7 +91,7 @@ const ProfileSection = ({ profile }: { profile: UserProfile }) => {
       </Avatar>
       <div>
         <h2 className="text-xl font-semibold">{profile.name}</h2>
-        <p className="text-gray-500">KitchenAssistant Member</p>
+        <p className="text-gray-500">KitchenMate Member</p>
         <Button variant="outline" size="sm" className="mt-2 text-kitchen-orange border-kitchen-orange">
           Edit Profile
         </Button>

@@ -42,7 +42,7 @@ const HomePage = () => {
         <div className="bg-kitchen-orange p-4 rounded-full mb-4">
           <ChefHat size={48} className="text-kitchen-dark" />
         </div>
-        <h1 className="text-3xl font-bold text-white mb-2">KitchenAssistant</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">KitchenMate</h1>
         <p className="text-muted-foreground text-center">Your AI-powered kitchen management companion</p>
       </div>
       

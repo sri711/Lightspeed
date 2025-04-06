@@ -30,7 +30,7 @@ const Header = () => {
   const getTitle = () => {
     switch(location.pathname) {
       case '/home':
-        return 'KitchenAssistant';
+        return 'KitchenMate';
       case '/':
         return 'Recipe Generator';
       case '/profile':
@@ -42,7 +42,7 @@ const Header = () => {
       case '/food-rating':
         return 'Food Rating System';
       default:
-        return 'KitchenAssistant';
+        return 'KitchenMate';
     }
   };
 
